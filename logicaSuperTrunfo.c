@@ -1,43 +1,144 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+// Função para limpar o buffer de entrada
+void limparBuffer(){
+    int c;
+    while((c = getchar()) != '\n' && c != EOF);
+}
 
-int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+int main(){
+    //carta 1
+    char estado1[3], codigo1[3], nomeDaCidade1[50] ;
+    unsigned long int populacao1;
+    int pontosTuristicos1;
+    float area1, densidadePopulacional1, PIB1, pibPerCapita1, superPoder1;
+    
+    
+
+    //carta 2
+    char estado2[3], codigo2[3], nomeDaCidade2[50] ;
+    unsigned long int populacao2;
+    int pontosTuristicos2;
+    float area2, densidadePopulacional2, PIB2, pibPerCapita2, superPoder2;
 
     
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    printf("Insira os dados da primeira carta \n");
+    printf("Digite a letra do Estado (Entre A e H): \n");
+    scanf("%s", estado1);
+    limparBuffer();
+    printf("Digite o código da carta (Dois digitos): \n");
+    scanf("%s", codigo1);
+    limparBuffer();
+    printf("Digite o nome da cidade: \n");
+    scanf("%s", nomeDaCidade1);
+    limparBuffer();
+    printf("Digite o PIB: \n");
+    scanf("%f", &PIB1);
+    limparBuffer();
+    printf("Digite quantidade da população: \n");
+    scanf("%d", &populacao1);
+    limparBuffer();
+    printf("Digite a área: \n");
+    scanf("  %f",&area1 );
+    limparBuffer();
+    printf("Digite número de pontos turisticos: \n");
+    scanf("%d", &pontosTuristicos1);
+    limparBuffer();
+    
+    densidadePopulacional1 = populacao1 / area1;
+    pibPerCapita1 = PIB1 / populacao1;
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    superPoder1 = (float) populacao1 + area1 + PIB1 + pontosTuristicos1 + pibPerCapita1 + ( 1 / densidadePopulacional1);
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    printf("Insira os dados da segunda carta \n");
+    printf("Digite a letra do Estado (Entre A e H): \n");
+    scanf("%s", estado2);
+    limparBuffer();
+    printf("Digite o código da carta (Dois digitos): \n");
+    scanf("%s", codigo2);
+    limparBuffer();
+    printf("Digite o nome da cidade: \n");
+    scanf("%s", nomeDaCidade2);
+    limparBuffer();
+    printf("Digite o PIB: \n");
+    scanf("%f", &PIB2);
+    limparBuffer();
+    printf("Digite quantidade da população: \n");
+    scanf("%d", &populacao2);
+    limparBuffer();
+    printf("Digite a área: \n");
+    scanf("  %f",&area2 );
+    limparBuffer();
+    printf("Digite número de pontos turisticos: \n");
+    scanf("%d", &pontosTuristicos2);
+    limparBuffer();
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    densidadePopulacional2 = populacao2 / area2;
+    pibPerCapita2 = PIB2 / populacao2;
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    superPoder2 = (float) populacao2 + area2 + PIB2 + pontosTuristicos2 + pibPerCapita2 + (1 / densidadePopulacional2);
+
+    // Exibição dos dados da primeira carta
+    printf("\nCarta 1 \n");
+    printf("Estado: %s \n", estado1);
+    printf("Código: %s%s \n", estado1, codigo1);  
+    printf("Nome da Cidade: %s \n", nomeDaCidade1);
+    printf("População: %d \n", populacao1);
+    printf("Área: %f km² \n", area1);  
+    printf("PIB: %f \n", PIB1);     
+    printf("Pontos turísticos: %d \n", pontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacional1);
+    printf("PIB per Capita: %.2f \n", pibPerCapita1);
+    printf("Super poder = %f \n", superPoder1);
+
+    // Exibição dos dados da segunda carta
+    printf("\nCarta 2 \n");
+    printf("Estado: %s \n", estado2);
+    printf("Código: %s%s \n", estado2, codigo2);  
+    printf("Nome da Cidade: %s \n", nomeDaCidade2);
+    printf("População: %d \n", populacao2);
+    printf("Área: %f km² \n", area2);  
+    printf("PIB: %f \n", PIB2);     
+    printf("Pontos turísticos: %d \n", pontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidadePopulacional2);
+    printf("PIB per Capita: %.2f \n", pibPerCapita2);
+    printf("Super Poder = %f \n", superPoder2);
+
+    //Implementando Logicas de decisão comparando atributos
+
+    if(populacao1 > populacao2){
+        printf("Carta um venceu por ter a maior população \n");
+    }else{
+        printf("Carta dois venceu por ter a maior população \n");
+    }
+
+    if(area1 > area2){
+        printf("Carta um venceu por ter a maior área \n");
+    }else{
+        printf("Carta dois venceu por ter a maior área \n");
+    }
+
+    if(PIB1 > PIB2){
+        printf("Carta um venceu por ter maior PIB \n");
+    }else{
+        printf("Carta dois venceu por ter maior PIB \n");
+    }
+
+    if(densidadePopulacional1 < densidadePopulacional2){
+        printf("Carta um venceu por ter menor densidade populacioal \n");
+    }else{
+        printf("Carta dois venceu por ter menor densidade populacioal \n");
+    }
+
+    if(pibPerCapita1 > pibPerCapita2) {
+        printf("Carta um venceu por ter PIB per capita maior \n");
+    }else{
+        printf("Carta dois venceu por ter PIB per capita maior \n");
+    }
+
+
+
 
     return 0;
 }
