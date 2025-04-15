@@ -21,6 +21,9 @@ int main(){
     int pontosTuristicos2;
     float area2, densidadePopulacional2, PIB2, pibPerCapita2, superPoder2;
 
+    // Menu switch
+    int atributo;
+
     
 
     printf("Insira os dados da primeira carta \n");
@@ -105,39 +108,74 @@ int main(){
     printf("PIB per Capita: %.2f \n", pibPerCapita2);
     printf("Super Poder = %f \n", superPoder2);
 
-    //Implementando Logicas de decisão comparando atributos
+    //Menu de opções
+    printf("###_ESCOLHA SEU ATRIBUTO_###\n");
+    printf("1. População\n");
+    printf("2. Area\n");
+    printf("3. PIB\n");
+    printf("4. Densiadade Populacional\n");
+    printf("5. PIB per capita\n");
+    scanf("%d", &atributo);
 
-    if(populacao1 > populacao2){
-        printf("Carta um venceu por ter a maior população \n");
-    }else{
-        printf("Carta dois venceu por ter a maior população \n");
+
+    //Implementando Logicas de decisão comparando atributos //adicionado switch
+
+    switch (atributo)
+    {
+    case 1:
+        if(populacao1 > populacao2){
+            printf("Carta um venceu por ter a maior população \n");
+        }else if(populacao1 < populacao2){
+            printf("Carta dois venceu por ter a maior população \n");
+        }else{
+            printf("###EMPATE###");
+        }
+        break;
+    
+    case 2:
+        if(area1 > area2){
+            printf("Carta um venceu por ter a maior área \n");
+        }else if(area1 < area2) {
+            printf("Carta dois venceu por ter a maior área \n");
+        }else{
+            printf("###EMPATE###");
+        }
+        break;
+    
+    case 3:
+        if(PIB1 > PIB2){
+            printf("Carta um venceu por ter maior PIB \n");
+        }else if (PIB1 < PIB2){
+            printf("Carta dois venceu por ter maior PIB \n");
+        }else{
+            printf("###EMPATE###");
+        }    
+        break;
+    
+    case 4:   
+        if(densidadePopulacional1 < densidadePopulacional2){
+            printf("Carta um venceu por ter menor densidade populacioal \n");
+        }else if (densidadePopulacional1 > densidadePopulacional2){
+            printf("Carta dois venceu por ter menor densidade populacioal \n");
+        }else{
+            printf("###EMPATE###");
+        }
+        break;
+    
+    case 5:    
+        if(pibPerCapita1 > pibPerCapita2) {
+            printf("Carta um venceu por ter PIB per capita maior \n");
+        }else if (pibPerCapita1 < pibPerCapita2){
+            printf("Carta dois venceu por ter PIB per capita maior \n");
+        }else{
+            printf("###EMPATE###");
+        }
+        break;
+        
+        default:
+        printf("Opção Invalida");
+        break;
     }
-
-    if(area1 > area2){
-        printf("Carta um venceu por ter a maior área \n");
-    }else{
-        printf("Carta dois venceu por ter a maior área \n");
-    }
-
-    if(PIB1 > PIB2){
-        printf("Carta um venceu por ter maior PIB \n");
-    }else{
-        printf("Carta dois venceu por ter maior PIB \n");
-    }
-
-    if(densidadePopulacional1 < densidadePopulacional2){
-        printf("Carta um venceu por ter menor densidade populacioal \n");
-    }else{
-        printf("Carta dois venceu por ter menor densidade populacioal \n");
-    }
-
-    if(pibPerCapita1 > pibPerCapita2) {
-        printf("Carta um venceu por ter PIB per capita maior \n");
-    }else{
-        printf("Carta dois venceu por ter PIB per capita maior \n");
-    }
-
-
 
 
     return 0;
